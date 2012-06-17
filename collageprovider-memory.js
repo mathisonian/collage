@@ -5,7 +5,7 @@ var BSON = require('mongodb').BSON;
 var ObjectID = require('mongodb').ObjectID;
 
 CollageProvider = function(host, port){
-    this.db = new Db('node-mongo-collage', new Server(host, port,{auto_reconnect: true}, {}));
+    this.db = new Db('mongo-node-collage', new Server(host, port,{auto_reconnect: true}, {}));
     this.db.open(function(){});
 };
 
@@ -21,7 +21,7 @@ CollageProvider.prototype.findAll = function(callback) {
     this.getCollection(function(error, collage_collection) {
         if(error) callback(error)
         else {
-            gif_collection.find().toArray(function(error, results) {
+            collage_collection.find().toArray(function(error, results) {
                 if(error) callback(error)
                 else callback(null, results)
             });
@@ -30,10 +30,11 @@ CollageProvider.prototype.findAll = function(callback) {
 };
 
 CollageProvider.prototype.findById = function(id, callback) {
+	console.log("!!!!!!!!!!!\n" + id + "!!!!!!!!!!!\n");
     this.getCollection(function(error, collage_collection) {
       if( error ) callback(error)
       else {
-        gif_collection.findOne({_id: collage_collection.db.bson_serializer.ObjectID.createFromHexString(id)}, function(error, result) {
+        collage_collection.findOne({_id: collage_collection.db.bson_serializer.ObjectID.createFromHexString(id)}, function(error, result) {
           if( error ) callback(error)
           else callback(null, result)
         });
@@ -41,19 +42,13 @@ CollageProvider.prototype.findById = function(id, callback) {
     });
 };
 
-CollageProvider.prototype.save = function(collages, callback) {
+CollageProvider.prototype.save = function(collage, callback) {
     this.getCollection(function(error, collage_collection) {
       if( error ) callback(error)
       else {
-        if( typeof(collages.length)=="undefined")
-          collages = [collages];
-
-        for( var i =0;i< gifs.length;i++ ) {
-          collages = collages[i];
-          collages.created_at = new Date();
-        }
-
-        collage_collection.insert(collages, function() {
+		collage.created_at = new Date();
+		
+        collage_collection.insert(collage, function() {
           callback(null, collages);
         });
       }

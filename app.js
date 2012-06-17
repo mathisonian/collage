@@ -28,6 +28,9 @@ app.configure('production', function(){
 });
 
 // Routes
+app.get('/favicon.ico', function(req, res) {
+	
+});
 
 app.get('/:id?', routes.index);
 
