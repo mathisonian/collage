@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>	  <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>	  <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8" />
+
+	<!-- Set the viewport width to device width for mobile -->
+	<meta name="viewport" content="width=device-width" />
+
+	<title>videotop</title>
+  
+	<!-- Included CSS Files -->
+	<link rel="stylesheet" href="stylesheets/foundation.css">
+	<link rel="stylesheet" href="stylesheets/app.css">
+	<link type="text/css" href="stylesheets/ui-lightness/jquery-ui-1.8.18.custom.css" rel="Stylesheet" />	
+
+	<!--[if lt IE 9]>
+		<link rel="stylesheet" href="stylesheets/ie.css">
+	<![endif]-->
+
+
+	<!-- IE Fix for HTML5 Tags -->
+	<!--[if lt IE 9]>
+		<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+</head>
+<body>
+
+	<!-- container -->
+	<div class="container">
+		<div class="row">
+			<div class="twelve columns">
+				<h3>
+					digital collage
+				</h3>
+				<h5>
+					flash video controls: <a href="javascript:toggleVideoControls();"<span id="control">Off</span></a><br/> 
+				</h5><br/>
+				
+				<ul>
+					<li>
+							click (don't drag) a video to select it.
+							selected video has grey outline
+					</li>
+					<li>
+					
+							toggle video controls: spacebar
+					</li>
+					<li>
+					
+							adjust opacity of selected element: +/-
+					</li>
+					<li>
+					
+							delete selected element: delete key or backspace
+					</li>
+				</ul>
+				<h6>
+				<a href="#" data-reveal-id="embedModal" data-animation="fadeAndPop" data-animationspeed="300" data-closeonbackgroundclick="true" data-dismissmodalclass="close-reveal-modal">Add a new video / image</a><br/><br/>
+				<a href="">Save</a>
+				</h6>
+			</div>
+		</div>
+		<div class="row">
+			<div class="twelve columns">
+				<div class="media-container">
+					<div class="media">
+						<iframe class="video" src="http://www.youtube.com/embed/mLLy_1Z8LgY?rel=0" frameborder="0" allowfullscreen></iframe>
+					</div>
+					<div class="media">
+						<iframe src="http://player.vimeo.com/video/43985827" class="video" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- container -->
+
+<div id="embedModal" class="reveal-modal">
+	Enter iframe embedding code:
+	<textarea id="embedText"></textarea>
+	-OR-<br/>
+	Enter image source:
+	<input type="text" id="imgText"></input><br/><br/>
+	<a href="javascript:insertIframe();" class="nice small black button">Insert</a>
+    <a class="close-reveal-modal">&#215;</a>
+</div>
+
+
+	<!-- Included JS Files -->
+	<script src="javascripts/jquery.min.js"></script>
+	<script src="javascripts/jquery-ui.min.js"></script>
+	<script src="javascripts/modernizr.foundation.js"></script>
+	<script src="javascripts/foundation.js"></script>
+	<script src="javascripts/app.js"></script>
+
+</body>
+</html>
