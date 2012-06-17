@@ -1,0 +1,77 @@
+!!! 5
+html(lang='en')
+//
+    <![endif]
+  head
+    meta(charset='utf-8')
+    //
+       Set the viewport width to device width for mobile 
+    meta(name='viewport', content='width=device-width')
+    title videotop
+    //
+       Included CSS Files 
+    link(rel='stylesheet', href='stylesheets/foundation.css')
+    link(rel='stylesheet', href='stylesheets/app.css')
+    link(type='text/css', href='stylesheets/ui-lightness/jquery-ui-1.8.18.custom.css', rel='Stylesheet')
+    //if lt IE 9
+      link(rel='stylesheet', href='stylesheets/ie.css')
+    //
+       IE Fix for HTML5 Tags 
+    //if lt IE 9
+      script(src='http://html5shiv.googlecode.com/svn/trunk/html5.js')
+  body
+    //
+       container 
+    .container
+      .row
+        .twelve.columns
+          h3
+            | digital collage
+          h5
+            | flash video controls:
+            a(href='javascript:toggleVideoControls();')
+              span#control Off
+            br
+          br
+          ul
+            li
+              | click (don't drag) a video to select it.
+              | selected video has grey outline
+            li
+              | toggle video controls: spacebar
+            li
+              | adjust opacity of selected element: +/-
+            li
+              | delete selected element: delete key or backspace
+          h6
+            a(href='#', data-reveal-id='embedModal', data-animation='fadeAndPop', data-animationspeed='300', data-closeonbackgroundclick='true', data-dismissmodalclass='close-reveal-modal') Add a new video / image
+            br
+            br
+            a(href='') Save
+      .row
+        .twelve.columns
+          .media-container
+            .media
+              iframe.video(src='http://www.youtube.com/embed/mLLy_1Z8LgY?rel=0', frameborder='0', allowfullscreen='allowfullscreen')
+            .media
+              iframe.video(src='http://player.vimeo.com/video/43985827', frameborder='0', webkitallowfullscreen='webkitAllowFullScreen', mozallowfullscreen='mozallowfullscreen', allowfullscreen='allowFullScreen')
+    //
+       container 
+    #embedModal.reveal-modal
+      | Enter iframe embedding code:
+      textarea#embedText
+      | -OR-
+      br
+      | Enter image source:
+      input#imgText(type='text')
+      br
+      br
+      a.nice.small.black.button(href='javascript:insertIframe();') Insert
+      a.close-reveal-modal ×
+    //
+       Included JS Files 
+    script(src='javascripts/jquery.min.js')
+    script(src='javascripts/jquery-ui.min.js')
+    script(src='javascripts/modernizr.foundation.js')
+    script(src='javascripts/foundation.js')
+    script(src='javascripts/app.js')
