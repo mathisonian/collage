@@ -33,21 +33,30 @@ function toggleVideoControls() {
     }
 }
 
+function save() {
+	$.ajax({
+	  type: "POST",
+	  url: "/save",
+	  data: { collage : {html: $(".media-container").html()}}
+	});
+}
+
 /* Foundation v2.2 http://foundation.zurb.com */
 jQuery(document).ready(function ($) {
 	$.lastClicked = false;
 	$(document).keydown(function(e) {
 	    var code = (e.which) ? e.which : e.keyCode;
 	    var inChar = String.fromCharCode(code);
-	    /*if(code == 46 || code == 8) {
-	    	$(".selected").css('visibility','hidden');
+	    if(code == 46 || code == 8) {
+	    	e.preventDefault();
+			$(".selected").css('visibility','hidden');
 	    	$(".selected").addClass("deleted");
 	    	$(".selected").children().each(function(index) {
-	    		$(this).css('display','none');
+	    		$(this).remove();
 	    	});
 	    	$(".selected").removeClass("selected");	    
 	    }
-	    else */if (inChar ==  " ") {
+	    else if (inChar ==  " ") {
 /* 	        e.preventDefault(); */
 	        toggleVideoControls();
 		} else if(code === 187) {

@@ -49,7 +49,7 @@ CollageProvider.prototype.save = function(collage, callback) {
 		collage.created_at = new Date();
 		
         collage_collection.insert(collage, function() {
-          callback(null, collages);
+          callback(null, collage);
         });
       }
     });

@@ -12,11 +12,13 @@ exports.index = function(req, res){
 		collageProvider.findById(req.params.id, function(error, docs) {
 			res.render('index', { locals : {
 				title: "Digital Collage",
-				collage : docs,
-				time: new Date().getTime() }
+				collage : docs}
 			});		
 		});
 	} else {
-		res.render('index', { title: "Digital Collage" });
+		res.render('index', { locals : {
+			title: "Digital Collage",
+			collage : {html : ""} }
+		});
 	}
 };
