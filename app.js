@@ -31,7 +31,7 @@ app.configure('production', function(){
 app.get('/favicon.ico', function(req, res) {
 	
 });
-app.post('/save', routes.save);
+app.post("/save", routes.save);
 
 app.get('/:id?', routes.index);
 

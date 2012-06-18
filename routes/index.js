@@ -22,3 +22,11 @@ exports.index = function(req, res){
 		});
 	}
 };
+
+exports.save = function(req, res){
+	console.log("here!");
+	console.log(req.body.collage);
+	if(req.body.collage) {
+		collageProvider.save(req.body.collage, function(error, docs) {});	
+	}
+};
