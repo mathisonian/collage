@@ -36,7 +36,7 @@ function toggleVideoControls() {
 function save() {
 	$.ajax({
 	  type: "POST",
-	  url: "/save",
+	  url: "./save",
 	  data: { collage : {html: $(".media-container").html()}}
 	});
 }
